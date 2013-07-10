@@ -5,9 +5,13 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.new user_params
+		@user = User.new user_params #wtf how does rails know password and password_confirmation must match, and how
+																 # does bcrypt know to encrypt the pw before saving to the db as password_digest?
 		if @user.save
+			redirect_to root_url, notice: "Logged in"
+			session[:user_id] = @user.id
 		else
+			render :new
 		end
 	end
 
