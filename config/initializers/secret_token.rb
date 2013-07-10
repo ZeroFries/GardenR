@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Rainforest2::Application.config.secret_key_base = 'a438b0a9bd012367d8a07ad3fbc2e08d9994f6feef15d9e1324353d8884128a999ef3ec37421fbd2a76fe8cef04eaea46f7f2c47385fabad7ee8835e66e9624c'
+Gardenr::Application.config.secret_key_base = 'a438b0a9bd012367d8a07ad3fbc2e08d9994f6feef15d9e1324353d8884128a999ef3ec37421fbd2a76fe8cef04eaea46f7f2c47385fabad7ee8835e66e9624c'

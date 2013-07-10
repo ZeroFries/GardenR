@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Rainforest2::Application.load_tasks
+Gardenr::Application.load_tasks

@@ -1,5 +1,7 @@
-Rainforest2::Application.routes.draw do
+Gardenr::Application.routes.draw do
   resources :users
+  resources :session, only: [:new, :create, :destroy]
+  root to: "pages#home"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
