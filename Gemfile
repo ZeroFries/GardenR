@@ -53,4 +53,5 @@ gem 'possessive' # allows you to change string to possessive
 
 group :test, :development do
 	gem 'factory_girl_rails'
+	gem 'guard'
 end

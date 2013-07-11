@@ -11,4 +11,8 @@ FactoryGirl.define do
   	name "blue flower"
   	description "beautiful blue"
   end
+
+  factory :comment do
+  	note "amazing"
+  end
 end
