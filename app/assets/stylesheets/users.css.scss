@@ -45,7 +45,7 @@ input.btn-large{
 	background:rgba(190, 13, 13, 0.63);
 }
 
-/* ----- User Home ---- */
+/* ----- User Show ---- */
 
 .recent_pictures_container{
 	height: 80%;
@@ -97,5 +97,25 @@ button#add_picture_link{
 	a{
 		text-decoration: none;
 		color: black;
+	}
+}
+
+.user_contact_and_portfolio{
+	border: 1px solid black;
+	border-radius: 4px;
+	height: 110px;
+	width: 200px;
+	position: fixed;
+	top: 30%;
+	left: 7%;
+	padding: 10px;
+	font-family: 'Berkshire Swash', cursive;
+	font-size: 18px;
+	h4{
+		font-size: 22px;
+		font-weight: bold;
+	}
+	p{
+		margin: 7px;
 	}
 }

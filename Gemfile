@@ -39,6 +39,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'bootstrap-sass'
 
+gem 'possessive' # allows you to change string to possessive
+
 # Use unicorn as the app server
 # gem 'unicorn'
 

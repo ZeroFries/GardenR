@@ -23,12 +23,12 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		@user = current_user
+		@user = User.find(params[:id])
 		@flowers = @user.flowers.reverse
 	end
 
 	def portfolio
-		@user = current_user
+		@user = User.find(params[:id])
 		@flowers = @user.flowers.reverse
 	end
 

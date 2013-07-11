@@ -1,0 +1,8 @@
+<div id="flower_container">
+	<h2><%= @flower.name %></h2>
+	<img src=<%= @flower.url %> alt="Flower">
+	<p class="flower_description"><%= @flower.description %></p>
+	<p class="author">
+		Submitted by <%= link_to @user.username, @user %> on <%= @flower.created_at.strftime("%B %d, %Y") %>
+	</p>
+</div>

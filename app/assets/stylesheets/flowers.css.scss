@@ -11,3 +11,15 @@
 	@include form;
 }
 
+#flower_container{
+	width: 60%;
+	margin: auto;
+	text-align: center;
+	img{
+		margin: auto;
+		margin: 30px;
+		padding: 10px;
+		border: 3px inset #335533;
+	}
+}
+

@@ -25,6 +25,7 @@ class FlowersController < ApplicationController
 
 	def show
 		@flower = Flower.find(params[:id])
+		@user = User.find(@flower.user_id)
 	end
 
 	def edit

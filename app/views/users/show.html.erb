@@ -1,15 +1,22 @@
 <article class="recent_pictures_container">
+
+<% if @user == current_user %>
 	<h3>Recently Added Pictures</h3>
-	<% if @flowers %>
-		<div class="recent_pictures">
-		<% @flowers.each_with_index do |flower, i| %>
-			<%= link_to flower do %>
-				<img src=<%= flower.url %> alt="Flower" height="200" width="200" id=<%= "image_#{i}" %>>
-			<% end %>
-		<% end %>
-		</div>
-	<% end %>
+	<%= render "recent_pictures" %>
 </article>
-<button id="add_picture_link">
-	<%= link_to new_flower_path do %>+<% end %>
-</button>
+	<button id="add_picture_link">
+		<%= link_to new_flower_path do %>+<% end %>
+	</button>
+
+<% else %>
+
+<h3><%= @user.username %>'s Recently Added Pictures</h3>
+	<%= render "recent_pictures" %>
+	</article>
+	<aside class="user_contact_and_portfolio">
+		<h4>Contact:</h4>
+		<p>You can reach <%= @user.username %> at <%= @user.email %></p>
+		<%= link_to "Check out their portfolio", "/users/#{@user.id}/portfolio" %>
+	</aside>
+
+<% end %>

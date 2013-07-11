@@ -1,0 +1,9 @@
+<% if @flowers %>
+	<div class="recent_pictures">
+	<% @flowers.each_with_index do |flower, i| %>
+		<%= link_to flower do %>
+			<img src=<%= flower.url %> alt="Flower" height="200" width="200" id=<%= "image_#{i}" %>>
+		<% end %>
+	<% end %>
+	</div>
+<% end %>
