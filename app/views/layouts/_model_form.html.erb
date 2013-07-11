@@ -2,10 +2,16 @@
 		 object is model, categories is array of hashes with variable and text placeholders -->
 <%= form_for object do |f| %>
 	<% categories.each do |cat| %>
-		<%= f.text_field cat[:var], placeholder: cat[:placeholder] %>
+		<% if cat[:var].to_s.include? "password" %>
+			<%= f.password_field cat[:var], placeholder: cat[:placeholder] %>
+		<% else %>
+			<%= f.text_field cat[:var], placeholder: cat[:placeholder] %>
+		<% end %>
 	<% end %>
-	<div id="error">
-		<%= object.errors.full_messages.first %>
-	</div>
-	<%= f.submit value: "Complete form" %>
+	<% if object.errors.any? %>
+		<div id="error">
+			<%= object.errors.full_messages.first %>
+		</div>
+	<% end %>
+	<%= f.submit value: "Complete form", class: "btn-large" %>
 <% end %>

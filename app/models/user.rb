@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	has_many :flowers
+
 	has_secure_password # has before save shit to encrypt pw?
 	valid_email = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 

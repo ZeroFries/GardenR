@@ -2,10 +2,6 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
-		name = { var: :username, placeholder: "User name" }
-		email = { var: :email, placeholder: "Email" }
-		pw = { var: :password, placeholder: "Enter 5+ char password" }
-		pw_conf = { var: :password_confirmation, placeholder: "Retype password" }
 		@categories = categories_array
 	end
 
@@ -14,8 +10,9 @@ class UsersController < ApplicationController
 																 # does bcrypt know to encrypt the pw before saving to the db as password_digest?
 		@categories = categories_array
 		if @user.save
-			redirect_to root_url, notice: "Logged in"
+			redirect_to @user, notice: "Thanks for signing up! Feel free to start adding your creations, or check out the gallery"
 			session[:user_id] = @user.id
+			current_user = @user
 		else
 			render :new
 		end
@@ -23,6 +20,11 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = current_user
+	end
+
+	def show
+		@user = current_user
+		@flowers = @user.flowers.reverse
 	end
 
 	private
@@ -34,7 +36,7 @@ class UsersController < ApplicationController
 		def categories_array
 			name = { var: :username, placeholder: "User name" }
 			email = { var: :email, placeholder: "Email" }
-			pw = { var: :password, placeholder: "Enter 5+ char password" }
+			pw = { var: :password, placeholder: "Password" }
 			pw_conf = { var: :password_confirmation, placeholder: "Retype password" }
 			[name, email, pw, pw_conf]
 		end

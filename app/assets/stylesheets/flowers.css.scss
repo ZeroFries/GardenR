@@ -1,0 +1,13 @@
+@mixin form{
+	display: block;
+	margin: 10px auto;
+	width: 20%;
+	height: 30px;
+	font-family: 'Helvetica', cursive;
+	font-size: 19px;
+}
+
+.add_new_flower input{
+	@include form;
+}
+

@@ -1,6 +1,7 @@
 class PagesController < ApplicationController
 	def home
 		if current_user
+			redirect_to current_user
 		else
 			render action: "landing_page"
 		end

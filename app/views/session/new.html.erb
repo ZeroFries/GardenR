@@ -1,5 +1,12 @@
-<%= form_tag session_index_path do %>
-	<%= text_field_tag :email, nil, placeholder: "Email" %>
-	<%= password_field_tag :password, nil, placeholder: "Password" %>
-	<%= submit_tag nil, value: "Login" %>
-<% end %>
+<div class="signin">
+	<%= form_tag session_index_url do %>
+		<%= text_field_tag :email, nil, placeholder: "Email" %>
+		<%= password_field_tag :password, nil, placeholder: "Password" %>
+		<% if flash[:alert] %>
+			<div id="error">
+				<%= flash[:alert] %>
+			</div>
+		<% end %>
+		<%= submit_tag nil, value: "Login", class: "btn-large" %>
+	<% end %>
+</div>

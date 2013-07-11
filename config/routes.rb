@@ -1,5 +1,7 @@
 Gardenr::Application.routes.draw do
+
   resources :users
+  resources :flowers
   resources :session, only: [:new, :create, :destroy]
   root to: "pages#home"
 

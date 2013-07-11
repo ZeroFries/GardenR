@@ -1,0 +1,18 @@
+<article class="recent_pictures_container">
+	<h3>Recently Added Pictures</h3>
+	<% if @flowers %>
+		<% @flowers.each do |flower| %>
+		<ul class="recent_pictures">
+			<li>
+				<%= link_to flower do %>
+					<img src=<%= flower.url %> alt="Flower" height="200" width="200">
+				<% end %>
+			</li>
+		</ul>
+		<% end %>
+	<% end %>
+</article>
+<div class="add_picture_link">
+	<%= link_to "Add new picture", new_flower_path %>
+	| View your portfolio
+</div>

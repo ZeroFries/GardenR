@@ -9,10 +9,12 @@ class SessionController < ApplicationController
 			redirect_to root_url
 		else #wrong login details
 			flash.now[:alert] = "Wrong login details"
+			render :new
 		end
 	end
 
 	def destroy
 		session[:user_id] = nil
+		redirect_to root_url
 	end
 end
