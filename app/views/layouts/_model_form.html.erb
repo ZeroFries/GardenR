@@ -8,10 +8,12 @@
 			<%= f.text_field cat[:var], placeholder: cat[:placeholder] %>
 		<% end %>
 	<% end %>
-	<% if object.errors.any? %>
-		<div id="error">
-			<%= object.errors.full_messages.first %>
-		</div>
+	<% if object.respond_to? :errors %>
+		<% if object.errors.any? %>
+			<div id="error">
+				<%= object.errors.full_messages.first %>
+			</div>
+		<% end %>
 	<% end %>
 	<%= f.submit value: "+", class: "btn-large" %>
 <% end %>
