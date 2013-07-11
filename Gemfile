@@ -41,6 +41,7 @@ gem 'bootstrap-sass'
 
 gem 'possessive' # allows you to change string to possessive
 
+
 # Use unicorn as the app server
 # gem 'unicorn'
 
@@ -49,3 +50,7 @@ gem 'possessive' # allows you to change string to possessive
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+group :test, :development do
+	gem 'factory_girl_rails'
+end
