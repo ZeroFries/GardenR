@@ -27,6 +27,11 @@ class UsersController < ApplicationController
 		@flowers = @user.flowers.reverse
 	end
 
+	def portfolio
+		@user = current_user
+		@flowers = @user.flowers.reverse
+	end
+
 	private
 
 		def user_params

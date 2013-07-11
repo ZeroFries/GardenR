@@ -1,0 +1,7 @@
+<div class="portfolio_container">
+	<% @flowers.each do |flower| %>
+		<%= link_to flower do %>
+				<img src=<%= flower.url %> alt="Flower" height="200" width="200">
+			<% end %>
+	<% end %>
+</div>
