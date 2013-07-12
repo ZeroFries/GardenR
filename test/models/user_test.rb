@@ -35,4 +35,11 @@ class UserTest < ActiveSupport::TestCase
   	assert !@user2.save	
   	assert_equal "doesn't match Password", @user2.errors[:password_confirmation].first
 	end
+
+  test "no duplicate emails" do
+    @user3 = FactoryGirl.build :user
+
+    assert !@user3.save
+    assert_equal "has already been taken", @user3.errors[:email].first
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130711204025) do
+ActiveRecord::Schema.define(version: 20130712204012) do
 
   create_table "comments", force: true do |t|
     t.text     "note"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(version: 20130711204025) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "ratings", force: true do |t|
+    t.boolean  "up_vote"
+    t.integer  "user_id"
+    t.integer  "flower_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["flower_id"], name: "index_ratings_on_flower_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email"

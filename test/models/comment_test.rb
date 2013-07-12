@@ -28,9 +28,10 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "it should have a flower AND owner" do
+    f = FactoryGirl.create :flower
   	u = FactoryGirl.create :user
-  	f = FactoryGirl.create :flower
   	c = f.comments.build note: "awesome"
+    k = "you"
   	c.user_id = u.id
   	c.save
 
