@@ -5,6 +5,10 @@ Gardenr::Application.routes.draw do
   resources :flowers do
     resources :comments, only: [:create, :edit, :destroy]
     resources :ratings, only: [:create, :edit, :destroy]
+    collection do
+      get 'next'
+      get 'prev'
+    end
   end
   resources :session, only: [:new, :create, :destroy]
   root to: "pages#home"

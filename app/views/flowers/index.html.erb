@@ -1,11 +1,15 @@
 <div class="gallery_top">
 	<ul>
-		<li><button class="btn-large prev">-</button>
-	<% @flowers[0..11].each_with_index do |flower, i| %>
+		<% if @active < @flowers.size %>
+			<li><%= link_to prev_flowers_url do %><button class="btn-large prev">-</button><% end %>
+		<% end %>
+	<% @flowers[(@range * 12)..((@range + 1) * 12)].each do |flower| %>
 		<li>
-			<img src=<%= flower.url %> alt="Flower" height="100" width="100" id=<%= "active" if i==0 %>>
+			<img src=<%= flower.url %> alt="Flower" height="100" width="100" id=<%= "active" if flower.id == @active %>>
 		</li>
 	<% end %>
-	<li><button class="btn-large next">+</button>
+	<% if @active > 1 %>
+			<li><%= link_to next_flowers_url do %><button class="btn-large next">+</button><% end %>
+		<% end %>
 	</ul>
 </div>

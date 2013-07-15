@@ -12,6 +12,7 @@ class UsersController < ApplicationController
 		if @user.save
 			redirect_to @user, notice: "Thanks for signing up! Feel free to start adding your creations, or check out the gallery"
 			session[:user_id] = @user.id
+			@user.update_attributes gallery_range: 0, active_flower: Flower.last.id
 			current_user = @user
 		else
 			render :new
