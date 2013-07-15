@@ -27,6 +27,7 @@ class FlowersController < ApplicationController
 		@flower = Flower.find(params[:id])
 		@user = User.find(@flower.user_id)
 		@comment = Comment.new if current_user
+		@rating = Rating.new if current_user
 		@categories = [{var: :note, placeholder: "Add a comment"}]
 	end
 

@@ -1,0 +1,9 @@
+<%= form_for [@flower, @rating] do |f| %>
+	<%= f.hidden_field :up_vote, value: true %>
+	<%= f.submit value: "Upvote", id: "upvote" %>
+<% end %>
+
+<%= form_for [@flower, @rating] do |f| %>
+	<%= f.hidden_field :up_vote, value: false %>
+	<%= f.submit value: "Downvote", id: "downvote" %>
+<% end %>

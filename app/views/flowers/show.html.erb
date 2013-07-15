@@ -7,6 +7,17 @@
 	</p>
 </div>
 
+<div class="rate">
+<%= @flower.rating %>
+<%= @flower.score %>
+<% @flower.ratings.each do |rating| %>
+<%= rating.up_vote %>
+<% end %>
+<% if current_user %>
+		<%= render "ratings_form" %>
+<% end %>
+</div>
+
 <div class="comments">
 	<h3>Comments:</h3>
 	<ul>

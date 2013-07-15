@@ -6,4 +6,25 @@ class Flower < ActiveRecord::Base
 
 	validates :url, presence: true
 	validates :name, presence: true, length: { minimum: 3 }
+
+	def rating
+		i = 0
+		self.ratings.each do |rating|
+			i += 1 if rating.up_vote
+		end
+		if self.ratings.size > 0
+			i.to_f / self.ratings.size
+		else
+			nil
+		end
+	end
+
+	def score
+		i = 0
+		self.ratings.each do |rating|
+			i += 1 if rating.up_vote
+			i -= 1 if !rating.up_vote
+		end
+		i
+	end
 end

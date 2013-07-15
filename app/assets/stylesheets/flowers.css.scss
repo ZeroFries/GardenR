@@ -7,6 +7,20 @@
 	font-size: 19px;
 }
 
+@mixin btn{
+	height: 50px;
+	width: 50px;
+	border-radius: 50%;
+	border: 5px solid black;
+	background: #335533;
+	color: black;
+	font-family: Helvetica, Arial;
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 20px;	
+	text-align: center;
+}
+
 .add_new_flower input{
 	@include form;
 }
@@ -29,6 +43,7 @@ input{
 	@include form;
 	&#comment_note{
 		@include form;
+		width: 50%;
 	}
 }
 
@@ -59,4 +74,26 @@ input{
 	}
 }
 
+
+/* ----- Gallery ----- */
+
+.gallery_top{
+	& ul{
+		list-style: none;
+		& li{
+			display: inline-block;
+			& img{
+			}
+		}
+	}
+	#active{
+		border: 5px solid white;
+	}
+}
+
+.btn-large{
+	@include btn;
+	margin-right: 10px;
+	margin-left: 5px;
+}
 

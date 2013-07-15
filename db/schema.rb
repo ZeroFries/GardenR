@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130712204012) do
+ActiveRecord::Schema.define(version: 20130715191627) do
 
   create_table "comments", force: true do |t|
     t.text     "note"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20130712204012) do
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "active_flower"
   end
 
 end
