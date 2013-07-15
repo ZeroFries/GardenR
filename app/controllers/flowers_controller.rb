@@ -36,13 +36,13 @@ class FlowersController < ApplicationController
 
 	def next
 		current_user.update_attributes(active_flower: current_user.active_flower - 1) if current_user.active_flower > 0
-		current_user.update_attributes(gallery_range: current_user.gallery_range + 1) if current_user.active_flower % 12 == 0
+		current_user.update_attributes(gallery_range: current_user.gallery_range + 1) if page_switch
 		redirect_to flowers_url
 	end
 
 	def prev
+		current_user.update_attributes(gallery_range: current_user.gallery_range - 1) if page_switch
 		current_user.update_attributes(active_flower: current_user.active_flower + 1)	if current_user.active_flower < Flower.all.size
-		current_user.update_attributes(gallery_range: current_user.gallery_range - 1) if current_user.active_flower % 12 == 0
 		redirect_to flowers_url
 	end
 
@@ -52,6 +52,12 @@ class FlowersController < ApplicationController
 		@comment = Comment.new if current_user
 		@rating = Rating.new if current_user
 		@categories = [{var: :note, placeholder: "Add a comment"}]
+	end
+
+	def skip_to
+		@flower = Flower.find(params[:id])
+		current_user.update_attributes(active_flower: @flower.id)
+		redirect_to flowers_url
 	end
 
 	def edit
@@ -71,5 +77,9 @@ class FlowersController < ApplicationController
 			name = { var: :name, placeholder: "Name" }
 			description = { var: :description, placeholder: "Description" }
 			[url, name, description]
+		end
+
+		def page_switch
+			(Flower.all.size - current_user.active_flower) % 10 == 0
 		end
 end

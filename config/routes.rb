@@ -9,6 +9,9 @@ Gardenr::Application.routes.draw do
       get 'next'
       get 'prev'
     end
+    member do
+      get 'skip_to'
+    end
   end
   resources :session, only: [:new, :create, :destroy]
   root to: "pages#home"

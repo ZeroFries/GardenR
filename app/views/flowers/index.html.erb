@@ -5,9 +5,9 @@
 		<% else %>
 			<button class="btn-large prev">-</button>
 		<% end %>
-	<% @flowers[(@range * 12)..((@range + 1) * 12)].each do |flower| %>
-		<li>
-			<img src=<%= flower.url %> alt="Flower" height="100" width="100" id=<%= "active" if flower.id == @active %>>
+	<% @flowers[(@range * 10)..((@range + 1) * 10 - 1)].each do |flower| %>
+		<li><%= link_to skip_to_flower_url(flower) do %>
+			<img src=<%= flower.url %> alt="Flower" height="100" width="100" id=<%= "active" if flower.id == @active %>><% end %>
 		</li>
 	<% end %>
 	<% if @active > 1 %>
