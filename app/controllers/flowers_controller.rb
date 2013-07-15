@@ -24,20 +24,24 @@ class FlowersController < ApplicationController
 			@flowers = Flower.all.reverse
 			@range = current_user.gallery_range
 			@active = current_user.active_flower
+			@flower = Flower.find @active
+			@user = @flower.user
+			@comment = Comment.new if current_user
+			@rating = Rating.new if current_user
+			@categories = [{var: :note, placeholder: "Add a comment"}]
 		else
 			redirect_to root_url
 		end
 	end
 
 	def next
-		@test = "hi"
-		current_user.update_attributes(active_flower: current_user.active_flower - 1)
+		current_user.update_attributes(active_flower: current_user.active_flower - 1) if current_user.active_flower > 0
 		current_user.update_attributes(gallery_range: current_user.gallery_range + 1) if current_user.active_flower % 12 == 0
 		redirect_to flowers_url
 	end
 
 	def prev
-		current_user.update_attributes(active_flower: current_user.active_flower + 1)
+		current_user.update_attributes(active_flower: current_user.active_flower + 1)	if current_user.active_flower < Flower.all.size
 		current_user.update_attributes(gallery_range: current_user.gallery_range - 1) if current_user.active_flower % 12 == 0
 		redirect_to flowers_url
 	end

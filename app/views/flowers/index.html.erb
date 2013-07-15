@@ -1,7 +1,9 @@
 <div class="gallery_top">
 	<ul>
 		<% if @active < @flowers.size %>
-			<li><%= link_to prev_flowers_url do %><button class="btn-large prev">-</button><% end %>
+			<li><%= link_to prev_flowers_url, id:"prev" do %><button class="btn-large prev">-</button><% end %>
+		<% else %>
+			<button class="btn-large prev">-</button>
 		<% end %>
 	<% @flowers[(@range * 12)..((@range + 1) * 12)].each do |flower| %>
 		<li>
@@ -9,7 +11,13 @@
 		</li>
 	<% end %>
 	<% if @active > 1 %>
-			<li><%= link_to next_flowers_url do %><button class="btn-large next">+</button><% end %>
-		<% end %>
+		<li><%= link_to next_flowers_url, id:"next" do %><button class="btn-large next">+</button><% end %>
+	<% else %>
+		<button class="btn-large next">+</button>
+	<% end %>
 	</ul>
+</div>
+
+<div class="gallery_display">
+	<%= render "display_flower" %>
 </div>
